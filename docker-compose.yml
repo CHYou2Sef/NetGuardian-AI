@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  netguardian-dashboard:
+    build: .
+    container_name: netguardian-ai
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    networks:
+      - netguardian-network
+
+networks:
+  netguardian-network:
+    driver: bridge
