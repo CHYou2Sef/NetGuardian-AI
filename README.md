@@ -46,11 +46,39 @@ NetGuardian-AI/
 
 ### 3. Utilisation
 
-*   **Pour apprendre** : Ouvrez les notebooks dans `notebooks/kaggle/` dans l'ordre (01 à 05).
-*   **Pour le Dashboard** :
-    ```bash
-    streamlit run app/dashboard.py
-    ```
+#### 🎓 Pour apprendre
+Ouvrez les notebooks dans `notebooks/kaggle/` dans l'ordre (01 à 05) ou utilisez les notebooks unifiés pour Colab.
+
+#### 🌐 Dashboard en Temps Réel
+```bash
+# Lancer le dashboard Streamlit
+streamlit run app/dashboard.py
+
+# Ou avec Docker
+docker-compose up
+```
+
+Accédez au dashboard sur **http://localhost:8501**
+
+#### 🚀 Démonstration Rapide
+```bash
+# Simulation de 60 secondes
+python scripts/run_realtime_demo.py --duration 60 --attack-rate 0.2
+
+# Simulation personnalisée
+python scripts/run_realtime_demo.py --duration 300 --attack-rate 0.3 --packets-per-second 20
+```
+
+## 🎯 Fonctionnalités du Dashboard
+
+- **Détection en temps réel** avec visualisations interactives
+- **Métriques live** : Total traité, attaques détectées, taux de détection
+- **Graphiques** : Timeline, distribution des attaques, comparaisons
+- **Contrôles** : Ajuster la vitesse de simulation et le ratio d'attaques
+- **Export** : Sauvegarder les logs en CSV/JSON
+- **Mode Mock** : Fonctionne sans modèles entraînés pour développement
+
+> 💡 **Note** : Le système utilise des modèles mock par défaut. Pour utiliser les vrais modèles, entraînez-les d'abord avec les notebooks Colab, puis placez les fichiers `.pkl` dans `models/`.
 
 ## 📚 Documentation
 

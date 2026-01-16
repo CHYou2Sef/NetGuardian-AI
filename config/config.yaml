@@ -1,0 +1,42 @@
+# Configuration pour NetGuardian-AI
+
+# Chemins des modèles
+models:
+  binary_model_path: "models/binary_classifier.pkl"
+  multiclass_model_path: "models/multiclass_classifier.pkl"
+  scaler_path: "models/scaler.pkl"
+  label_encoder_path: "models/label_encoder.pkl"
+  hybrid_system_path: "models/hybrid_ids_system.pkl"
+
+# Configuration de détection
+detection:
+  confidence_threshold: 0.7
+  use_mock_models: true  # Mettre à false quand les vrais modèles sont prêts
+  max_history_size: 1000
+
+# Configuration des alertes
+alerts:
+  cooldown_seconds: 5
+  log_directory: "logs"
+  export_format: "csv"  # csv ou json
+
+# Configuration de la simulation
+simulation:
+  mode: "synthetic"  # synthetic ou replay
+  packets_per_second: 10
+  attack_ratio: 0.2
+  dataset_path: "data/processed/cicids2017_cleaned.csv"
+
+# Configuration du dashboard
+dashboard:
+  refresh_interval: 1  # secondes
+  max_display_alerts: 20
+  chart_update_interval: 2  # secondes
+  port: 8501
+  host: "0.0.0.0"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/netguardian.log"
